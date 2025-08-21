@@ -1,0 +1,856 @@
+fileFormatVersion: 2
+guid: 6a6b0c47546d4b6488600c181eb5c758
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1469410447951229931
+    second: domino-vector-illustration_622487-127-removebg-preview_0
+  - first:
+      213: 2993227958138691234
+    second: domino-vector-illustration_622487-127-removebg-preview_1
+  - first:
+      213: -5201448395713817462
+    second: domino-vector-illustration_622487-127-removebg-preview_2
+  - first:
+      213: -1795376037180202470
+    second: domino-vector-illustration_622487-127-removebg-preview_3
+  - first:
+      213: 4435324910841765030
+    second: domino-vector-illustration_622487-127-removebg-preview_4
+  - first:
+      213: -3363991077260787706
+    second: domino-vector-illustration_622487-127-removebg-preview_5
+  - first:
+      213: 1541316069873454854
+    second: domino-vector-illustration_622487-127-removebg-preview_6
+  - first:
+      213: -3801750218892471975
+    second: domino-vector-illustration_622487-127-removebg-preview_7
+  - first:
+      213: 7039568979964127756
+    second: domino-vector-illustration_622487-127-removebg-preview_8
+  - first:
+      213: -720404001958567781
+    second: domino-vector-illustration_622487-127-removebg-preview_9
+  - first:
+      213: 2180088537909787160
+    second: domino-vector-illustration_622487-127-removebg-preview_10
+  - first:
+      213: 2936263808408517070
+    second: domino-vector-illustration_622487-127-removebg-preview_11
+  - first:
+      213: -7421224190391093686
+    second: domino-vector-illustration_622487-127-removebg-preview_12
+  - first:
+      213: 940605597835262831
+    second: domino-vector-illustration_622487-127-removebg-preview_13
+  - first:
+      213: 1230732579140749475
+    second: domino-vector-illustration_622487-127-removebg-preview_14
+  - first:
+      213: 4910912447960956440
+    second: domino-vector-illustration_622487-127-removebg-preview_15
+  - first:
+      213: 5286335918391714061
+    second: domino-vector-illustration_622487-127-removebg-preview_16
+  - first:
+      213: 6641469782712354097
+    second: domino-vector-illustration_622487-127-removebg-preview_17
+  - first:
+      213: 5309913747060749872
+    second: domino-vector-illustration_622487-127-removebg-preview_18
+  - first:
+      213: -7643093732965851868
+    second: domino-vector-illustration_622487-127-removebg-preview_19
+  - first:
+      213: -2813837516536342214
+    second: domino-vector-illustration_622487-127-removebg-preview_20
+  - first:
+      213: 2180126661342471135
+    second: domino-vector-illustration_622487-127-removebg-preview_21
+  - first:
+      213: 3744818283059516289
+    second: domino-vector-illustration_622487-127-removebg-preview_22
+  - first:
+      213: 9165467108849022475
+    second: domino-vector-illustration_622487-127-removebg-preview_23
+  - first:
+      213: 4263133851369438585
+    second: domino-vector-illustration_622487-127-removebg-preview_24
+  - first:
+      213: -1090749761722214859
+    second: domino-vector-illustration_622487-127-removebg-preview_25
+  - first:
+      213: 101679639905960280
+    second: domino-vector-illustration_622487-127-removebg-preview_26
+  - first:
+      213: -236673646711591457
+    second: domino-vector-illustration_622487-127-removebg-preview_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 373
+        width: 56
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be371636405646410800000000000000
+      internalID: 1469410447951229931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 374
+        width: 54
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aedf9818f41a8920800000000000000
+      internalID: 2993227958138691234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 374
+        width: 55
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a84d3f71e3eb0d7b0800000000000000
+      internalID: -5201448395713817462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 373
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1220a9a10b8517e0800000000000000
+      internalID: -1795376037180202470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 374
+        width: 54
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ac1a2ec1807d8d30800000000000000
+      internalID: 4435324910841765030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 373
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 600894c30f3b051d0800000000000000
+      internalID: -3363991077260787706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 373
+        width: 55
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f886f9ccad36510800000000000000
+      internalID: 1541316069873454854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 258
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 951962681587d3bc0800000000000000
+      internalID: -3801750218892471975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 258
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0aee96a0b291b160800000000000000
+      internalID: 7039568979964127756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 258
+        width: 55
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b906d78806c9006f0800000000000000
+      internalID: -720404001958567781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 258
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81a730189fa314e10800000000000000
+      internalID: 2180088537909787160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 258
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec976037064bfb820800000000000000
+      internalID: 2936263808408517070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 258
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a46f33d0be3820990800000000000000
+      internalID: -7421224190391093686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_13
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 258
+        width: 55
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6bf6b4cec3bd0d00800000000000000
+      internalID: 940605597835262831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_14
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 142
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a84f2192c0741110800000000000000
+      internalID: 1230732579140749475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_15
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 142
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81eb1cf2ad0172440800000000000000
+      internalID: 4910912447960956440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_16
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 142
+        width: 55
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0160237286dc5940800000000000000
+      internalID: 5286335918391714061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_17
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 142
+        width: 54
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1358f01549d3b2c50800000000000000
+      internalID: 6641469782712354097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_18
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 142
+        width: 53
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 036f4897b6a90b940800000000000000
+      internalID: 5309913747060749872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_19
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 143
+        width: 54
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42d5e85aeb64ee590800000000000000
+      internalID: -7643093732965851868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_20
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 142
+        width: 55
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a391f23efad33f8d0800000000000000
+      internalID: -2813837516536342214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_21
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 28
+        width: 54
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd32daec5ad514e10800000000000000
+      internalID: 2180126661342471135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_22
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 28
+        width: 54
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1839626336448f330800000000000000
+      internalID: 3744818283059516289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_23
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 28
+        width: 55
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b06f87756c7423f70800000000000000
+      internalID: 9165467108849022475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_24
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 28
+        width: 54
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97d71d896a1b92b30800000000000000
+      internalID: 4263133851369438585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_25
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 28
+        width: 53
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53694b9eed0ecd0f0800000000000000
+      internalID: -1090749761722214859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_26
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 28
+        width: 54
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8510c71081d396100800000000000000
+      internalID: 101679639905960280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: domino-vector-illustration_622487-127-removebg-preview_27
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 28
+        width: 55
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdd2f00829a27bcf0800000000000000
+      internalID: -236673646711591457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
