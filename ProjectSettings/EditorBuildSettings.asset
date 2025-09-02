@@ -15,6 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Creditos.unity
     guid: 94fbf75db8fc1634790d8fa388cb3b91
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: b474d2e22622fb44db61c32d562274f9, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 2d62dafbf9b11a04a8d87779cb75e68a, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
