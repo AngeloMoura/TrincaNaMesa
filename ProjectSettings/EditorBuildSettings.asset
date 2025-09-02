@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/MenuPrincipal.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/jogo.unity
+    guid: 0278765fdff855f44b8fd3175c1699de
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: 94fbf75db8fc1634790d8fa388cb3b91
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 2d62dafbf9b11a04a8d87779cb75e68a, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
