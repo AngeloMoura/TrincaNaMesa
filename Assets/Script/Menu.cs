@@ -25,14 +25,14 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("MenuPrincipal");
     }
 
-    public void Vitoria()
+    public void Escolha()
     {
-        SceneManager.LoadScene("Vitoria");
+        SceneManager.LoadScene("Escolha");
     }
 
-    public void Derrota()
+    public void Story()
     {
-        SceneManager.LoadScene("Derrota");
+        SceneManager.LoadScene("Story");
     }
 
 
