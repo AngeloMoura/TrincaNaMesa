@@ -41,4 +41,19 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Creditos");
     }
 
+    public void Historias()
+    {
+        SceneManager.LoadScene("Historias");
+    }
+
+    public void Story1()
+    {
+        SceneManager.LoadScene("Story1");
+    }
+
+    public void Story2()
+    {
+        SceneManager.LoadScene("Story2");
+    }
+
 }
