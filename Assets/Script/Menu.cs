@@ -25,20 +25,35 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("MenuPrincipal");
     }
 
-    public void Vitoria()
+    public void Escolha()
     {
-        SceneManager.LoadScene("Vitoria");
+        SceneManager.LoadScene("Escolha");
     }
 
-    public void Derrota()
+    public void Story()
     {
-        SceneManager.LoadScene("Derrota");
+        SceneManager.LoadScene("Story");
     }
 
 
     public void Creditos()
     {
         SceneManager.LoadScene("Creditos");
+    }
+
+    public void Historias()
+    {
+        SceneManager.LoadScene("Historias");
+    }
+
+    public void Story1()
+    {
+        SceneManager.LoadScene("Story1");
+    }
+
+    public void Story2()
+    {
+        SceneManager.LoadScene("Story2");
     }
 
 }
