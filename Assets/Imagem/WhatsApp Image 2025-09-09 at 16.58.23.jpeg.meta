@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cb29688c8001f854b9968af30a7b371a
+guid: 50570a487b9c29f459f9b10370244e69
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2332691706223029782
-    second: "20250903_1459_Bal\xE3o_de_Intera\xE7\xE3o_simple_compose_01k48bktjweswrym4n5znvcq2n-removebg-preview_0"
+      213: -4899390250824586421
+    second: WhatsApp Image 2025-09-09 at 16.58.23_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "20250903_1459_Bal\xE3o_de_Intera\xE7\xE3o_simple_compose_01k48bktjweswrym4n5znvcq2n-removebg-preview_0"
+      name: WhatsApp Image 2025-09-09 at 16.58.23_0
       rect:
         serializedVersion: 2
-        x: 127
-        y: 51
-        width: 370
-        height: 308
+        x: 0
+        y: 0
+        width: 1536
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61e6ce76fb26f5020800000000000000
-      internalID: 2332691706223029782
+      spriteID: b4ba693668ed10cb0800000000000000
+      internalID: -4899390250824586421
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "20250903_1459_Bal\xE3o_de_Intera\xE7\xE3o_simple_compose_01k48bktjweswrym4n5znvcq2n-removebg-preview_0": 2332691706223029782
+      "20250903_1525_Bal\xE3o em Branco_remix_01k48d3q0qe3y8wbvtm0np3es7_0": -1862475953421999087
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
