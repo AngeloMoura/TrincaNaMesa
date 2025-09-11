@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 18bf5a8194af73448ad891869f7a88bc
+guid: aa4f365630c58834fa6a4a6d4efc9a77
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1001657240637974925
-    second: coca_cola_1080x2340_0
+      213: -4528197177914240121
+    second: assets_client_upload_media_4ec2f4f918ac2dc4dbb187067387a631103c2383_media_01k4tj3zs4f0hs7hesq2fdxyjg-removebg-preview_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coca_cola_1080x2340_0
+      name: assets_client_upload_media_4ec2f4f918ac2dc4dbb187067387a631103c2383_media_01k4tj3zs4f0hs7hesq2fdxyjg-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1080
-        height: 2340
+        x: 56
+        y: 70
+        width: 295
+        height: 457
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3765311fb066912f0800000000000000
-      internalID: -1001657240637974925
+      spriteID: 783de7978ac9821c0800000000000000
+      internalID: -4528197177914240121
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      coca_cola_1080x2340_0: -1001657240637974925
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
