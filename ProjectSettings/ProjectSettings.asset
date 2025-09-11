@@ -808,11 +808,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 9e134211-78d5-4c48-a675-408c5406a545
+  cloudProjectId: c0556b64-31e8-434e-9bf3-6d0a073e39fd
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: TrincaNaMesaa 2025-08-20_16-09-02
-  organizationId: angelodiano98
+  projectName: TrincaNaMesa
+  organizationId: afoldo
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
