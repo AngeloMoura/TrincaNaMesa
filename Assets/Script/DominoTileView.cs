@@ -1,81 +1,57 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using Domino;
 
-namespace Domino
+public class DominoTileView : MonoBehaviour
 {
-    public class DominoTileView : MonoBehaviour
+    public Image sideAImage;
+    public Image sideBImage;
+
+    private DominoTile tile;
+    private Sprite[] pipSprites;
+    private UnityAction onClick;
+    private bool faceDown = false;
+    private Sprite backSprite;
+
+    // Configuração inicial
+    public void Setup(DominoTile tile, Sprite[] pipSprites, UnityAction onClick, Sprite backSprite, bool faceDown)
     {
-        public Image sideAImage;
-        public Image sideBImage;
+        this.tile = tile;
+        this.pipSprites = pipSprites;
+        this.onClick = onClick;
+        this.backSprite = backSprite;
+        this.faceDown = faceDown;
 
-        private DominoTile tile;
-        private Sprite[] pipSprites;
-        private Sprite backSprite;
-        private Button button;
-        private bool faceDown = false;
+        Refresh();
 
-        void Awake()
+        var button = GetComponent<Button>();
+        if (button != null)
         {
-            button = GetComponent<Button>();
+            button.onClick.RemoveAllListeners();
+            if (onClick != null) button.onClick.AddListener(onClick);
         }
+    }
 
-        // Setup da peça (face-up ou face-down)
-        public void Setup(DominoTile tileData, Sprite[] pipSprites, UnityAction onClick, Sprite backSprite = null, bool startFaceDown = false)
+    // Atualiza visual
+    private void Refresh()
+    {
+        if (faceDown && backSprite != null)
         {
-            tile = tileData;
-            this.pipSprites = pipSprites;
-            this.backSprite = backSprite;
-            faceDown = startFaceDown;
-
-            if (button != null)
-            {
-                button.onClick.RemoveAllListeners();
-                if (onClick != null)
-                {
-                    button.onClick.AddListener(onClick);
-                    button.interactable = true;
-                }
-                else
-                {
-                    button.interactable = false;
-                }
-            }
-
-            ApplyVisual();
+            sideAImage.sprite = backSprite;
+            sideBImage.sprite = backSprite;
         }
-
-        private void ApplyVisual()
+        else if (tile != null && tile.A >= 0 && tile.B >= 0)
         {
-            if (faceDown && backSprite != null)
-            {
-                sideAImage.sprite = backSprite;
-                sideBImage.sprite = backSprite;
-            }
-            else if (pipSprites != null && tile != null && tile.A >= 0 && tile.B >= 0)
-            {
-                sideAImage.sprite = pipSprites[tile.A];
-                sideBImage.sprite = pipSprites[tile.B];
-            }
-            else
-            {
-                sideAImage.sprite = backSprite;
-                sideBImage.sprite = backSprite;
-            }
+            sideAImage.sprite = pipSprites[tile.A];
+            sideBImage.sprite = pipSprites[tile.B];
         }
+    }
 
-        public void Reveal()
-        {
-            faceDown = false;
-            ApplyVisual();
-        }
-
-        public void SetFaceDown(bool down)
-        {
-            faceDown = down;
-            ApplyVisual();
-        }
-
-        public DominoTile GetTile() => tile;
+    // Revela peça (quando jogo acaba)
+    public void Reveal()
+    {
+        faceDown = false;
+        Refresh();
     }
 }

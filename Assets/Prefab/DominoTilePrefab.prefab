@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 8185105579066061870}
   - component: {fileID: 7533694189591871386}
   - component: {fileID: 783916080974430067}
-  - component: {fileID: 3767267204674362476}
+  - component: {fileID: 6872174217678401809}
   m_Layer: 5
   m_Name: DominoTilePrefab
   m_TagString: Untagged
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3767267204674362476
+--- !u!114 &6872174217678401809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,8 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b2e6adf6ae0a44d93279940d962eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideAImage: {fileID: 5458391408340797758}
-  sideBImage: {fileID: 6358934058437313590}
+  sideAImage: {fileID: 0}
+  sideBImage: {fileID: 0}
 --- !u!1 &1641540441988517913
 GameObject:
   m_ObjectHideFlags: 0

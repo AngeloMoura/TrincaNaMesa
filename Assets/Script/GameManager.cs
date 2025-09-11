@@ -13,7 +13,7 @@ namespace Domino
         public Transform botHandArea;
         public Transform deckArea;
         public Transform boardArea;
-        public Sprite[] pipSprites; // sprites 0..6
+        public Sprite[] pipSprites; // 0..6
 
         [Header("Back / UI")]
         public Sprite backSprite;
@@ -97,6 +97,7 @@ namespace Domino
         void RenderPlayerHand()
         {
             foreach (Transform t in playerHandArea) Destroy(t.gameObject);
+
             foreach (var tile in playerHand)
             {
                 var go = Instantiate(tilePrefab, playerHandArea);
@@ -109,11 +110,13 @@ namespace Domino
         void RenderBotHand()
         {
             foreach (Transform t in botHandArea) Destroy(t.gameObject);
+
             foreach (var tile in botHand)
             {
                 var go = Instantiate(tilePrefab, botHandArea);
                 var view = go.GetComponent<DominoTileView>();
-                view.Setup(tile, pipSprites, null, backSprite, true); // verso
+                // Bot = faceDown
+                view.Setup(tile, pipSprites, null, backSprite, true);
             }
         }
 
@@ -141,7 +144,6 @@ namespace Domino
 
             int left = board[0].A;
             int right = board[board.Count - 1].B;
-
             bool canLeft = (tile.A == left || tile.B == left);
             bool canRight = (tile.A == right || tile.B == right);
 
@@ -183,9 +185,7 @@ namespace Domino
             else botHand.Remove(tile);
 
             if (board.Count == 0)
-            {
                 board.Add(tile);
-            }
             else if (placeLeft)
             {
                 int leftVal = board[0].A;
@@ -233,12 +233,15 @@ namespace Domino
                 bool side = botAI.ChooseSide(move, board);
                 PlaceTile(move, side, false);
             }
-            else if (deck.Count > 0)
+            else
             {
-                botHand.Add(deck[0]);
-                deck.RemoveAt(0);
-                RenderBotHand();
-                RenderDeck();
+                if (deck.Count > 0)
+                {
+                    botHand.Add(deck[0]);
+                    deck.RemoveAt(0);
+                    RenderBotHand();
+                    RenderDeck();
+                }
             }
 
             playerTurn = true;

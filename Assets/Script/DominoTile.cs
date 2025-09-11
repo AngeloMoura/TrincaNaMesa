@@ -16,10 +16,5 @@ namespace Domino
         {
             return new DominoTile(B, A);
         }
-
-        public override string ToString()
-        {
-            return $"[{A}|{B}]";
-        }
     }
 }
