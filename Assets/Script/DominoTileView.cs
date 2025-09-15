@@ -1,57 +1,44 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using Domino;
+using UnityEngine.EventSystems;
 
-public class DominoTileView : MonoBehaviour
+namespace Domino
 {
-    public Image sideAImage;
-    public Image sideBImage;
-
-    private DominoTile tile;
-    private Sprite[] pipSprites;
-    private UnityAction onClick;
-    private bool faceDown = false;
-    private Sprite backSprite;
-
-    // Configuração inicial
-    public void Setup(DominoTile tile, Sprite[] pipSprites, UnityAction onClick, Sprite backSprite, bool faceDown)
+    /// <summary>
+    /// Componente visual para representar uma pedra de dominó em 2D (Unity).
+    /// </summary>
+    public class DominoTileView : MonoBehaviour, IPointerClickHandler
     {
-        this.tile = tile;
-        this.pipSprites = pipSprites;
-        this.onClick = onClick;
-        this.backSprite = backSprite;
-        this.faceDown = faceDown;
+        public Image topValueImage;
+        public Image bottomValueImage;
 
-        Refresh();
+        private DominoTile tile;
+        private System.Action<DominoTileView> onTileClicked;
 
-        var button = GetComponent<Button>();
-        if (button != null)
+        /// <summary>
+        /// Inicializa a pedra visual com os valores corretos.
+        /// </summary>
+        public void Setup(DominoTile tile, Sprite[] pipSprites, System.Action<DominoTileView> onClick)
         {
-            button.onClick.RemoveAllListeners();
-            if (onClick != null) button.onClick.AddListener(onClick);
-        }
-    }
+            this.tile = tile;
+            onTileClicked = onClick;
 
-    // Atualiza visual
-    private void Refresh()
-    {
-        if (faceDown && backSprite != null)
-        {
-            sideAImage.sprite = backSprite;
-            sideBImage.sprite = backSprite;
+            // Assume que pipSprites[0..6] são os sprites de 0 a 6
+            topValueImage.sprite = pipSprites[tile.A];
+            bottomValueImage.sprite = pipSprites[tile.B];
         }
-        else if (tile != null && tile.A >= 0 && tile.B >= 0)
-        {
-            sideAImage.sprite = pipSprites[tile.A];
-            sideBImage.sprite = pipSprites[tile.B];
-        }
-    }
 
-    // Revela peça (quando jogo acaba)
-    public void Reveal()
-    {
-        faceDown = false;
-        Refresh();
+        /// <summary>
+        /// Evento de clique (para o jogador escolher qual pedra jogar).
+        /// </summary>
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            onTileClicked?.Invoke(this);
+        }
+
+        /// <summary>
+        /// Obtém a pedra representada por este componente.
+        /// </summary>
+        public DominoTile GetTile() => tile;
     }
 }
