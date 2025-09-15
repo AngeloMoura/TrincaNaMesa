@@ -1,36 +1,58 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 
-public class HardBotAI
+namespace Domino
 {
-    public DominoTile ChooseMove(List<DominoTile> hand, int leftValue, int rightValue)
+    public class HardBotAI
     {
-        DominoTile bestTile = null;
-        int bestScore = -1;
-
-        foreach (var tile in hand)
+        public DominoTile ChooseMove(List<DominoTile> botHand, List<DominoTile> board)
         {
-            if (tile.Matches(leftValue) || tile.Matches(rightValue))
+            if (board.Count == 0)
+                return botHand[0];
+
+            int left = board[0].A;
+            int right = board[board.Count - 1].B;
+
+            DominoTile bestMove = null;
+            int highestSum = -1;
+
+            foreach (var tile in botHand)
             {
-                int score = CountOccurrences(hand, tile.SideA) + CountOccurrences(hand, tile.SideB);
-                if (score > bestScore)
+                bool canPlayLeft = tile.A == left || tile.B == left;
+                bool canPlayRight = tile.A == right || tile.B == right;
+
+                if (canPlayLeft || canPlayRight)
                 {
-                    bestScore = score;
-                    bestTile = tile;
+                    int sum = tile.A + tile.B;
+                    if (sum > highestSum)
+                    {
+                        highestSum = sum;
+                        bestMove = tile;
+                    }
                 }
             }
+
+            return bestMove;
         }
 
-        return bestTile;
-    }
-
-    private int CountOccurrences(List<DominoTile> hand, int value)
-    {
-        int count = 0;
-        foreach (var t in hand)
+        public bool ChooseSide(DominoTile tile, List<DominoTile> board)
         {
-            if (t.SideA == value || t.SideB == value) count++;
+            if (board.Count == 0) return true;
+
+            int left = board[0].A;
+            int right = board[board.Count - 1].B;
+
+            if (tile.A == left || tile.B == left) return true;
+            return false;
         }
-        return count;
+
+        public bool CanPlay(DominoTile tile, List<DominoTile> board)
+        {
+            if (board.Count == 0) return true;
+
+            int left = board[0].A;
+            int right = board[board.Count - 1].B;
+
+            return tile.A == left || tile.B == left || tile.A == right || tile.B == right;
+        }
     }
 }
