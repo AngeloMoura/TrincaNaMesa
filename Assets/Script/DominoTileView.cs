@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using Domino;
 
 public class DominoTileView : MonoBehaviour
 {

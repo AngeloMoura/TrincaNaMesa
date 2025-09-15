@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -56}
-  m_SizeDelta: {x: 100, y: 50}
+  m_AnchoredPosition: {x: 0.0001, y: -46.6962}
+  m_SizeDelta: {x: 68.112, y: 37.7763}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5694250150200444740
 CanvasRenderer:
@@ -102,7 +102,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306790608119531371}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0022467976, w: 0.9999975}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -110,11 +110,11 @@ RectTransform:
   - {fileID: 4988061119631734942}
   - {fileID: 7657608614584079737}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.257}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -596, y: 174}
-  m_SizeDelta: {x: 123.0826, y: 197.9185}
+  m_AnchoredPosition: {x: -612.29407, y: 191.89148}
+  m_SizeDelta: {x: 90.6556, y: 161.9895}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8185105579066061870
 CanvasRenderer:
@@ -210,8 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b2e6adf6ae0a44d93279940d962eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideAImage: {fileID: 0}
-  sideBImage: {fileID: 0}
+  sideAImage: {fileID: 5458391408340797758}
+  sideBImage: {fileID: 6358934058437313590}
 --- !u!1 &1641540441988517913
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,8 +246,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2, y: 50}
-  m_SizeDelta: {x: 100, y: 50}
+  m_AnchoredPosition: {x: 0.000020981, y: 43.9}
+  m_SizeDelta: {x: 68.1116, y: 36.438}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4078814018537291183
 CanvasRenderer:
