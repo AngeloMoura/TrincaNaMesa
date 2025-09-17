@@ -1,352 +1,299 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-[System.Serializable]
-public class PlacedTile
+namespace Domino
 {
-    public DominoTile tile;
-    public Vector2 position;
-    public float rotation;
-
-    public PlacedTile(DominoTile t, Vector2 pos, float rot)
+    public class GameManager : MonoBehaviour
     {
-        tile = t;
-        position = pos;
-        rotation = rot;
-    }
-}
+        [Header("Prefabs & Areas")]
+        public GameObject tilePrefab;
+        public Transform playerHandArea;
+        public Transform botHandArea;
+        public Transform deckArea;
+        public Transform boardArea;
+        public Sprite[] pipSprites; // 0..6
 
-public class GameManager : MonoBehaviour
-{
-    [Header("Prefabs e Sprites")]
-    public GameObject tilePrefab;
-    public Sprite[] pipSprites;
-    public Sprite backSprite;
+        [Header("Back / UI")]
+        public Sprite backSprite;
+        public GameObject sideChoicePanel;
+        public Button leftButton;
+        public Button rightButton;
+        public GameObject resultPanel;
+        public Text resultText;
 
-    [Header("Áreas do Tabuleiro")]
-    public Transform playerHandArea;
-    public Transform botHandArea;
-    public Transform deckArea;
-    public Transform boardArea;
+        private List<DominoTile> deck = new List<DominoTile>();
+        private List<DominoTile> playerHand = new List<DominoTile>();
+        private List<DominoTile> botHand = new List<DominoTile>();
+        private List<DominoTile> board = new List<DominoTile>();
 
-    [Header("UI")]
-    public GameObject sideChoicePanel;
-    public Button leftButton;
-    public Button rightButton;
-    public GameObject resultPanel;
-    public TMP_Text resultText;
-    public Image resultImage;
-    public Sprite winSprite;
-    public Sprite loseSprite;
-    public Sprite drawSprite;
+        private HardBotAI botAI = new HardBotAI();
+        private bool playerTurn = true;
+        private int initialHandSize = 7;
+        private DominoTile pendingTile = null;
 
-    private List<DominoTile> deck = new List<DominoTile>();
-    private List<DominoTile> playerHand = new List<DominoTile>();
-    private List<DominoTile> botHand = new List<DominoTile>();
-
-    // Novo: tabuleiro snake
-    private List<PlacedTile> placedBoard = new List<PlacedTile>();
-    private Vector2 leftEnd = Vector2.zero;
-    private Vector2 rightEnd = Vector2.zero;
-    private Vector2 leftDir = Vector2.left;
-    private Vector2 rightDir = Vector2.right;
-    private float spacing = 80f;
-
-    private DominoTile selectedTile;
-    private bool awaitingSideChoice;
-
-    void Start()
-    {
-        StartGame();
-    }
-
-    void StartGame()
-    {
-        resultPanel.SetActive(false);
-        sideChoicePanel.SetActive(false);
-        awaitingSideChoice = false;
-        selectedTile = null;
-
-        deck.Clear();
-        playerHand.Clear();
-        botHand.Clear();
-        placedBoard.Clear();
-        leftDir = Vector2.left;
-        rightDir = Vector2.right;
-        leftEnd = Vector2.zero;
-        rightEnd = Vector2.zero;
-
-        // Criar baralho
-        for (int i = 0; i <= 6; i++)
+        void Start()
         {
-            for (int j = i; j <= 6; j++)
+            SetupGame();
+        }
+
+        void SetupGame()
+        {
+            ClearAll();
+            GenerateDeck();
+            ShuffleDeck();
+            DistributeHands();
+            RenderAll();
+            sideChoicePanel.SetActive(false);
+            resultPanel.SetActive(false);
+        }
+
+        void ClearAll()
+        {
+            foreach (Transform t in playerHandArea) Destroy(t.gameObject);
+            foreach (Transform t in botHandArea) Destroy(t.gameObject);
+            foreach (Transform t in deckArea) Destroy(t.gameObject);
+            foreach (Transform t in boardArea) Destroy(t.gameObject);
+
+            deck.Clear(); playerHand.Clear(); botHand.Clear(); board.Clear();
+        }
+
+        void GenerateDeck()
+        {
+            for (int i = 0; i <= 6; i++)
+                for (int j = i; j <= 6; j++)
+                    deck.Add(new DominoTile(i, j));
+        }
+
+        void ShuffleDeck()
+        {
+            for (int i = deck.Count - 1; i > 0; i--)
             {
-                deck.Add(new DominoTile(i, j));
+                int r = Random.Range(0, i + 1);
+                var tmp = deck[i];
+                deck[i] = deck[r];
+                deck[r] = tmp;
             }
         }
 
-        Shuffle(deck);
-
-        // Distribuir
-        for (int k = 0; k < 7; k++)
+        void DistributeHands()
         {
-            playerHand.Add(DrawTile());
-            botHand.Add(DrawTile());
-        }
-
-        RenderAll();
-
-        leftButton.onClick.AddListener(() => OnSideChosen(true));
-        rightButton.onClick.AddListener(() => OnSideChosen(false));
-    }
-
-    void Shuffle(List<DominoTile> list)
-    {
-        for (int i = 0; i < list.Count; i++)
-        {
-            DominoTile temp = list[i];
-            int r = Random.Range(i, list.Count);
-            list[i] = list[r];
-            list[r] = temp;
-        }
-    }
-
-    DominoTile DrawTile()
-    {
-        if (deck.Count == 0) return null;
-        DominoTile t = deck[0];
-        deck.RemoveAt(0);
-        return t;
-    }
-
-    // ---------------- RENDER ----------------
-    void RenderAll()
-    {
-        RenderPlayerHand();
-        RenderBotHand();
-        RenderDeck();
-        RenderBoard();
-    }
-
-    void RenderPlayerHand()
-    {
-        foreach (Transform t in playerHandArea) Destroy(t.gameObject);
-        foreach (var tile in playerHand)
-        {
-            var go = Instantiate(tilePrefab, playerHandArea);
-            var view = go.GetComponent<DominoTileView>();
-            view.Setup(tile, pipSprites,
-                () => OnTileClicked(tile), // clique
-                null,
-                true);
-        }
-    }
-
-    void RenderBotHand()
-    {
-        foreach (Transform t in botHandArea) Destroy(t.gameObject);
-        foreach (var tile in botHand)
-        {
-            var go = Instantiate(tilePrefab, botHandArea);
-            var view = go.GetComponent<DominoTileView>();
-            view.Setup(tile, pipSprites, null, null, false, backSprite);
-        }
-    }
-
-    void RenderDeck()
-    {
-        foreach (Transform t in deckArea) Destroy(t.gameObject);
-        foreach (var tile in deck)
-        {
-            var go = Instantiate(tilePrefab, deckArea);
-            var view = go.GetComponent<DominoTileView>();
-            view.Setup(tile, pipSprites,
-                () => OnDeckClicked(),
-                null,
-                false,
-                backSprite);
-        }
-    }
-
-    void RenderBoard()
-    {
-        foreach (Transform t in boardArea) Destroy(t.gameObject);
-
-        foreach (var pt in placedBoard)
-        {
-            var go = Instantiate(tilePrefab, boardArea);
-            var view = go.GetComponent<DominoTileView>();
-            view.Setup(pt.tile, pipSprites, null, null, false);
-
-            RectTransform rt = go.GetComponent<RectTransform>();
-            rt.anchoredPosition = pt.position;
-            rt.localRotation = Quaternion.Euler(0, 0, pt.rotation);
-
-            if (pt.tile.A == pt.tile.B)
-                rt.localRotation = Quaternion.Euler(0, 0, pt.rotation + 90);
-        }
-    }
-
-    // ---------------- CLIQUE ----------------
-    void OnTileClicked(DominoTile tile)
-    {
-        if (awaitingSideChoice) return;
-        if (CanPlay(tile))
-        {
-            if (MustChooseSide(tile))
+            for (int i = 0; i < initialHandSize; i++)
             {
-                selectedTile = tile;
-                awaitingSideChoice = true;
+                playerHand.Add(deck[0]); deck.RemoveAt(0);
+                botHand.Add(deck[0]); deck.RemoveAt(0);
+            }
+        }
+
+        void RenderAll()
+        {
+            RenderBoard();
+            RenderPlayerHand();
+            RenderBotHand();
+            RenderDeck();
+        }
+
+        void RenderPlayerHand()
+        {
+            foreach (Transform t in playerHandArea) Destroy(t.gameObject);
+
+            foreach (var tile in playerHand)
+            {
+                var go = Instantiate(tilePrefab, playerHandArea);
+                var view = go.GetComponent<DominoTileView>();
+                DominoTile captured = tile;
+                view.Setup(tile, pipSprites, () => OnPlayerTileClicked(captured), null, false);
+            }
+        }
+
+        void RenderBotHand()
+        {
+            foreach (Transform t in botHandArea) Destroy(t.gameObject);
+
+            foreach (var tile in botHand)
+            {
+                var go = Instantiate(tilePrefab, botHandArea);
+                var view = go.GetComponent<DominoTileView>();
+                // Bot = faceDown
+                view.Setup(tile, pipSprites, null, backSprite, true);
+            }
+        }
+
+        void RenderDeck()
+        {
+            foreach (Transform t in deckArea) Destroy(t.gameObject);
+            if (deck.Count > 0)
+            {
+                var go = Instantiate(tilePrefab, deckArea);
+                var view = go.GetComponent<DominoTileView>();
+                view.Setup(new DominoTile(-1, -1), pipSprites, OnDeckClicked, backSprite, true);
+            }
+        }
+
+        void OnPlayerTileClicked(DominoTile tile)
+        {
+            if (!playerTurn || resultPanel.activeSelf) return;
+
+            if (board.Count == 0)
+            {
+                PlaceTile(tile, true, true);
+                EndPlayerTurn();
+                return;
+            }
+
+            int left = board[0].A;
+            int right = board[board.Count - 1].B;
+            bool canLeft = (tile.A == left || tile.B == left);
+            bool canRight = (tile.A == right || tile.B == right);
+
+            if (canLeft && canRight)
+            {
+                pendingTile = tile;
                 sideChoicePanel.SetActive(true);
+                leftButton.onClick.RemoveAllListeners();
+                rightButton.onClick.RemoveAllListeners();
+                leftButton.onClick.AddListener(() => { PlaceTile(pendingTile, true, true); sideChoicePanel.SetActive(false); pendingTile = null; EndPlayerTurn(); });
+                rightButton.onClick.AddListener(() => { PlaceTile(pendingTile, false, true); sideChoicePanel.SetActive(false); pendingTile = null; EndPlayerTurn(); });
+            }
+            else if (canLeft)
+            {
+                PlaceTile(tile, true, true);
+                EndPlayerTurn();
+            }
+            else if (canRight)
+            {
+                PlaceTile(tile, false, true);
+                EndPlayerTurn();
+            }
+        }
+
+        void OnDeckClicked()
+        {
+            if (!playerTurn || deck.Count == 0) return;
+
+            var drawn = deck[0];
+            deck.RemoveAt(0);
+            playerHand.Add(drawn);
+            RenderPlayerHand();
+            RenderDeck();
+        }
+
+        void PlaceTile(DominoTile tile, bool placeLeft, bool isPlayer)
+        {
+            if (isPlayer) playerHand.Remove(tile);
+            else botHand.Remove(tile);
+
+            if (board.Count == 0)
+                board.Add(tile);
+            else if (placeLeft)
+            {
+                int leftVal = board[0].A;
+                if (tile.A == leftVal) board.Insert(0, tile.Flipped());
+                else board.Insert(0, tile);
             }
             else
             {
-                bool left = Matches(leftEnd, tile);
-                PlaceTile(tile, left, true);
-                BotTurn();
+                int rightVal = board[board.Count - 1].B;
+                if (tile.B == rightVal) board.Add(tile);
+                else board.Add(tile.Flipped());
             }
-        }
-    }
 
-    void OnDeckClicked()
-    {
-        if (awaitingSideChoice) return;
-        DominoTile drawn = DrawTile();
-        if (drawn != null) playerHand.Add(drawn);
-        RenderAll();
-    }
-
-    void OnSideChosen(bool left)
-    {
-        sideChoicePanel.SetActive(false);
-        PlaceTile(selectedTile, left, true);
-        selectedTile = null;
-        awaitingSideChoice = false;
-        BotTurn();
-    }
-
-    // ---------------- REGRAS ----------------
-    bool CanPlay(DominoTile tile)
-    {
-        if (placedBoard.Count == 0) return true;
-        int leftNum = placedBoard[0].tile.A;
-        int rightNum = placedBoard[placedBoard.Count - 1].tile.B;
-        return (tile.A == leftNum || tile.B == leftNum ||
-                tile.A == rightNum || tile.B == rightNum);
-    }
-
-    bool MustChooseSide(DominoTile tile)
-    {
-        if (placedBoard.Count == 0) return false;
-        int leftNum = placedBoard[0].tile.A;
-        int rightNum = placedBoard[placedBoard.Count - 1].tile.B;
-        bool canLeft = (tile.A == leftNum || tile.B == leftNum);
-        bool canRight = (tile.A == rightNum || tile.B == rightNum);
-        return canLeft && canRight;
-    }
-
-    bool Matches(Vector2 end, DominoTile tile)
-    {
-        // simplificado, pode-se expandir para checar valores corretos
-        return true;
-    }
-
-    void PlaceTile(DominoTile tile, bool placeLeft, bool isPlayer)
-    {
-        if (isPlayer) playerHand.Remove(tile);
-        else botHand.Remove(tile);
-
-        if (placedBoard.Count == 0)
-        {
-            var first = new PlacedTile(tile, Vector2.zero, 0);
-            placedBoard.Add(first);
-            leftEnd = first.position;
-            rightEnd = first.position;
-        }
-        else if (placeLeft)
-        {
-            Vector2 newPos = leftEnd + leftDir * spacing;
-            float rot = DirToRotation(leftDir);
-            placedBoard.Insert(0, new PlacedTile(tile, newPos, rot));
-            leftEnd = newPos;
-
-            if (Mathf.Abs(newPos.x) > 500) leftDir = Vector2.down;
-            else if (Mathf.Abs(newPos.y) > 300) leftDir = Vector2.right;
-        }
-        else
-        {
-            Vector2 newPos = rightEnd + rightDir * spacing;
-            float rot = DirToRotation(rightDir);
-            placedBoard.Add(new PlacedTile(tile, newPos, rot));
-            rightEnd = newPos;
-
-            if (Mathf.Abs(newPos.x) > 500) rightDir = Vector2.down;
-            else if (Mathf.Abs(newPos.y) > 300) rightDir = Vector2.left;
+            RenderBoard();
+            RenderPlayerHand();
+            RenderBotHand();
+            RenderDeck();
+            CheckEndConditions();
         }
 
-        RenderAll();
-        CheckEndConditions();
-    }
-
-    float DirToRotation(Vector2 dir)
-    {
-        if (dir == Vector2.right) return 0f;
-        if (dir == Vector2.down) return -90f;
-        if (dir == Vector2.left) return 180f;
-        if (dir == Vector2.up) return 90f;
-        return 0f;
-    }
-
-    // ---------------- BOT ----------------
-    void BotTurn()
-    {
-        DominoTile playable = null;
-        bool placeLeft = false;
-
-        foreach (var t in botHand)
+        void RenderBoard()
         {
-            if (CanPlay(t))
+            foreach (Transform t in boardArea) Destroy(t.gameObject);
+            foreach (var tile in board)
             {
-                if (MustChooseSide(t))
-                    placeLeft = Random.value > 0.5f;
-                else
-                    placeLeft = Matches(leftEnd, t);
-                playable = t;
-                break;
+                var go = Instantiate(tilePrefab, boardArea);
+                var view = go.GetComponent<DominoTileView>();
+                view.Setup(tile, pipSprites, null, null, false);
             }
         }
 
-        if (playable != null) PlaceTile(playable, placeLeft, false);
-        else
+        void EndPlayerTurn()
         {
-            DominoTile drawn = DrawTile();
-            if (drawn != null) botHand.Add(drawn);
-            RenderAll();
+            playerTurn = false;
+            StartCoroutine(BotRoutine());
         }
-    }
 
-    // ---------------- FIM ----------------
-    void CheckEndConditions()
-    {
-        if (playerHand.Count == 0) ShowResult("Você venceu!", winSprite);
-        else if (botHand.Count == 0) ShowResult("Você perdeu!", loseSprite);
-        else if (deck.Count == 0 && !HasPlayableMove())
-            ShowResult("Empate!", drawSprite);
-    }
+        IEnumerator BotRoutine()
+        {
+            yield return new WaitForSeconds(0.8f);
 
-    bool HasPlayableMove()
-    {
-        foreach (var t in playerHand) if (CanPlay(t)) return true;
-        foreach (var t in botHand) if (CanPlay(t)) return true;
-        return false;
-    }
+            var move = botAI.ChooseMove(botHand, board);
+            if (move != null)
+            {
+                bool side = botAI.ChooseSide(move, board);
+                PlaceTile(move, side, false);
+            }
+            else
+            {
+                if (deck.Count > 0)
+                {
+                    botHand.Add(deck[0]);
+                    deck.RemoveAt(0);
+                    RenderBotHand();
+                    RenderDeck();
+                }
+            }
 
-    void ShowResult(string msg, Sprite img)
-    {
-        resultPanel.SetActive(true);
-        resultText.text = msg;
-        resultImage.sprite = img;
+            playerTurn = true;
+        }
+
+        bool HasValidMove(List<DominoTile> hand)
+        {
+            if (hand.Count == 0) return false;
+            if (board.Count == 0) return true;
+
+            int left = board[0].A;
+            int right = board[board.Count - 1].B;
+            foreach (var t in hand)
+                if (t.A == left || t.B == left || t.A == right || t.B == right) return true;
+            return false;
+        }
+
+        void CheckEndConditions()
+        {
+            if (playerHand.Count == 0)
+            {
+                ShowResult("Vitória! Você ganhou!");
+                return;
+            }
+            if (botHand.Count == 0)
+            {
+                ShowResult("Derrota! O bot venceu.");
+                return;
+            }
+
+            bool playerCan = HasValidMove(playerHand);
+            bool botCan = HasValidMove(botHand);
+            if (!playerCan && !botCan && deck.Count == 0)
+            {
+                ShowResult("Empate! Nenhum movimento possível.");
+            }
+        }
+
+        void ShowResult(string message)
+        {
+            RevealBotHand();
+            resultText.text = message;
+            resultPanel.SetActive(true);
+        }
+
+        void RevealBotHand()
+        {
+            foreach (Transform child in botHandArea)
+            {
+                var view = child.GetComponent<DominoTileView>();
+                if (view != null) view.Reveal();
+            }
+        }
     }
 }
